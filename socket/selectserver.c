@@ -102,9 +102,10 @@ int main(void)
             perror("select");
             exit(4);
         }
-
+        printf("loop");
         // run through the existing connections looking for data to read
         for(i = 0; i <= fdmax; i++) {
+            printf("%d\n", i);
             if (FD_ISSET(i, &read_fds)) { // we got one!!
                 if (i == listener) {
                     // handle new connections
